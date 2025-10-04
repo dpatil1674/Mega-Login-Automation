@@ -6,4 +6,4 @@ RUN uv venv
 RUN uv pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-CMD ["bash", "start.sh"]
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "login:app"]
